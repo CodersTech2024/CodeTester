@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@SchoolBank</title>
+    <title>Your Points - @SchoolBank</title>
     <style>
         body {
             background-color: #ff8c00; /* Dark orange */
@@ -13,29 +13,8 @@
             padding: 0;
             text-align: center;
         }
-        h1, h2 {
+        h1 {
             font-weight: bold;
-        }
-        .form-container {
-            margin: 20px auto;
-            width: 50%;
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        input[type="text"], input[type="password"], input[type="submit"] {
-            font-family: monospace;
-            padding: 10px;
-            margin: 10px;
-            font-size: 1.1em;
-            width: 80%;
-        }
-        input[type="submit"] {
-            background-color: #ff8c00;
-            color: white;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
         }
         .box {
             background-color: black;
@@ -45,113 +24,40 @@
             width: 50%;
             margin: 30px auto;
         }
-        .shelf-image {
-            margin-top: 20px;
-            width: 400px;
-            height: auto;
-        }
-        .points-box {
+        button {
+            padding: 10px;
             background-color: #ff8c00;
-            padding: 20px;
-            margin-top: 20px;
-            color: black;
-        }
-        p.note {
-            color: yellow;
-            font-size: 1em;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to @SchoolBank</h1>
-
-    <!-- Sign-up and Login forms for students -->
-    <div class="form-container" id="signup-container">
-        <h2>Sign Up</h2>
-        <p class="note">Note: Your username should be your name</p>
-        <form onsubmit="signUp(event)">
-            <input type="text" id="signup-username" placeholder="Enter your name (username)" required><br>
-            <input type="password" id="signup-password" placeholder="Create a password" required><br>
-            <input type="submit" value="Sign Up">
-        </form>
-    </div>
-
-    <div class="form-container" id="login-container">
-        <h2>Login</h2>
-        <form onsubmit="login(event)">
-            <input type="text" id="login-username" placeholder="Username" required><br>
-            <input type="password" id="login-password" placeholder="Password" required><br>
-            <input type="submit" value="Login">
-        </form>
-    </div>
-
-    <!-- After login for students -->
-    <div class="points-box" id="points-page" style="display: none;">
+    <h1>Welcome to Your Points Page!</h1>
+    <div class="box">
         <h2>Your Points</h2>
-        <p id="points-display">Default Points: 100</p>
-        <p>Monthly Points: +100 (Added Monthly)</p>
-        <p>With your points, you can buy pencils, books, and other school supplies.</p>
-        <img src="/mnt/data/image.png" class="shelf-image" alt="Shelf for school supplies">
+        <p id="points-display">Loading...</p>
         <button onclick="logout()">Sign Out</button>
     </div>
 
     <script>
-        function signUp(event) {
-            event.preventDefault();
-            const username = document.getElementById('signup-username').value;
-            const password = document.getElementById('signup-password').value;
-
-            // Store username and password in local storage
-            localStorage.setItem('username', username);
-            localStorage.setItem('password', password);
-
-            alert("Sign up successful! You can now log in.");
-            document.getElementById('signup-container').reset();
-        }
-
-        function login(event) {
-            event.preventDefault();
-            const username = document.getElementById('login-username').value;
-            const password = document.getElementById('login-password').value;
-
-            // Retrieve stored credentials
-            const storedUsername = localStorage.getItem('username');
-            const storedPassword = localStorage.getItem('password');
-
-            // Validate login
-            if (username === storedUsername && password === storedPassword) {
-                document.getElementById('signup-container').style.display = 'none';
-                document.getElementById('login-container').style.display = 'none';
-                document.getElementById('points-page').style.display = 'block';
-                document.getElementById('points-display').innerText = `Welcome ${username}, Your Points: 100`;
-            } else {
-                alert("Invalid credentials, please try again.");
-            }
-        }
+        // Load user points from local storage
+        window.onload = function() {
+            const username = localStorage.getItem('username');
+            document.getElementById('points-display').innerText = `Welcome ${username}, Your Points: 100`;
+        };
 
         function logout() {
             // Clear stored credentials
             localStorage.removeItem('username');
             localStorage.removeItem('password');
 
-            // Show login and signup forms
-            document.getElementById('signup-container').style.display = 'block';
-            document.getElementById('login-container').style.display = 'block';
-            document.getElementById('points-page').style.display = 'none';
+            // Redirect to the main page
+            window.location.href = 'index.html';
         }
-
-        // Auto-login if credentials exist
-        window.onload = function() {
-            const storedUsername = localStorage.getItem('username');
-            const storedPassword = localStorage.getItem('password');
-
-            if (storedUsername && storedPassword) {
-                document.getElementById('signup-container').style.display = 'none';
-                document.getElementById('login-container').style.display = 'none';
-                document.getElementById('points-page').style.display = 'block';
-                document.getElementById('points-display').innerText = `Welcome ${storedUsername}, Your Points: 100`;
-            }
-        };
     </script>
 </body>
 </html>
