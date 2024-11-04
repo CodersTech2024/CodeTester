@@ -3,138 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@SchoolBank</title>
+    <title>Climate Change Awareness</title>
     <style>
         body {
-            background-color: #ff8c00; /* Dark orange */
             font-family: monospace;
+            background-color: #4CAF50;
             color: white;
-            margin: 0;
-            padding: 0;
             text-align: center;
-        }
-        h1, h2 {
-            font-weight: bold;
-        }
-        .form-container {
-            margin: 20px auto;
-            width: 50%;
-            background-color: #333;
             padding: 20px;
-            border-radius: 10px;
+            font-size: 1.2em;
         }
-        input[type="text"], input[type="password"], input[type="submit"] {
-            font-family: monospace;
-            padding: 10px;
-            margin: 10px;
-            font-size: 1.1em;
-            width: 80%;
-        }
-        input[type="submit"] {
-            background-color: #ff8c00;
+        h1 {
+            font-size: 2.5em;
             color: white;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
+            text-shadow: 1px 1px 2px #000;
         }
-        .box {
-            background-color: black;
+        h2 {
+            font-size: 2em;
+            color: white;
+            text-shadow: 1px 1px 2px #000;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
-            margin-top: 30px;
+            background-color: rgba(0, 0, 0, 0.1);
             border-radius: 10px;
-            width: 50%;
-            margin: 30px auto;
-            display: none; /* Hide by default */
+        }
+        ul, ol {
+            font-size: 1.2em;
+            text-align: left;
+            list-style-type: square;
+            padding: 0 20px;
+        }
+        footer {
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+        .button-container {
+            margin: 20px 0;
         }
         button {
-            padding: 10px;
-            background-color: #ff8c00;
+            background-color: #FFD700;
+            color: black;
             border: none;
-            color: white;
-            font-weight: bold;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            border-radius: 5px;
             cursor: pointer;
-            margin-top: 10px;
+            margin: 10px;
         }
-        .note {
-            color: yellow;
-            font-size: 1em;
+        button:hover {
+            background-color: #FFBF00;
+        }
+        .image {
+            width: 100%;
+            max-width: 700px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to @SchoolBank</h1>
 
-    <!-- Sign-up and Login forms for students -->
-    <div class="form-container">
-        <h2>Sign Up</h2>
-        <p class="note">Note: Your username should be your name</p>
-        <form onsubmit="signUp(event)">
-            <input type="text" id="signup-username" placeholder="Enter your name (username)" required><br>
-            <input type="password" id="signup-password" placeholder="Create a password" required><br>
-            <input type="submit" value="Sign Up">
-        </form>
+<h1>🌎 Climate Change Awareness 🌎</h1>
+
+<div class="content">
+    
+    <img src="https://example.com/path-to-header-image.jpg" alt="Climate Change Image" class="image">
+
+    <h2>Tips to Help Save the Climate & Environment 🌱</h2>
+    <ul>
+        <li>Reduce, Reuse, and Recycle: Limit waste by reusing items and recycling materials whenever possible.</li>
+        <li>Conserve Water: Save water by taking shorter showers and turning off taps when not in use.</li>
+        <li>Use Public Transport or Carpool: Help reduce air pollution by using public transport, biking, or walking.</li>
+        <li>Plant Trees: Trees absorb CO₂, so planting more trees can help combat climate change.</li>
+        <li>Save Electricity: Turn off lights and appliances when not needed, and consider energy-efficient options.</li>
+        <li>Eat Less Meat: Producing meat requires a lot of resources, so eating less of it helps reduce emissions.</li>
+        <li>Avoid Plastic: Use reusable bags, bottles, and containers to reduce plastic waste.</li>
+        <li>Educate Yourself & Others: Spread awareness by learning more about climate change and sharing it with friends.</li>
+    </ul>
+
+    <h2>Common Questions About Climate Change 🤔</h2>
+    <ol>
+        <li>What is climate change?
+            <p>Climate change refers to long-term changes in global temperatures and other atmospheric conditions, often caused by human activities like burning fossil fuels.</p>
+        </li>
+        <li>How does climate change affect the planet?
+            <p>It leads to more extreme weather, rising sea levels, melting ice caps, and threats to ecosystems and biodiversity.</p>
+        </li>
+        <li>What causes climate change?
+            <p>The main cause is the increase in greenhouse gases from burning fossil fuels, deforestation, and industrial activities.</p>
+        </li>
+        <li>What are greenhouse gases?
+            <p>These gases, like carbon dioxide and methane, trap heat in the atmosphere, causing the Earth's temperature to rise.</p>
+        </li>
+        <li>How can we stop climate change?
+            <p>We can reduce greenhouse gas emissions by using renewable energy, conserving energy, and supporting sustainable practices.</p>
+        </li>
+    </ol>
+
+    <div class="button-container">
+        
+        <button onclick="learnMore()">Learn More</button>
+        <button onclick="pledge()">Take a Pledge</button>
+        <button onclick="contactUs()">Contact Us</button>
     </div>
+    <img src="https://example.com/path-to-secondary-image.jpg" alt="Environment Preservation" class="image">
 
-    <div class="form-container">
-        <h2>Login</h2>
-        <form onsubmit="login(event)">
-            <input type="text" id="login-username" placeholder="Username" required><br>
-            <input type="password" id="login-password" placeholder="Password" required><br>
-            <input type="submit" value="Login">
-        </form>
-    </div>
+</div>
 
-    <!-- After login for students -->
-    <div class="box" id="points-page">
-        <h2>Your Points</h2>
-        <p id="points-display">Loading...</p>
-        <button onclick="logout()">Sign Out</button>
-    </div>
+<footer>
+    <p>Created by CodersTech</p>
+    <p>Contact: <a href="mailto:coderstech42@gmail.com" style="color: #FFD700;">coderstech42@gmail.com</a></p>
+    <p>Thank you for spreading awareness! 🌍</p>
+</footer>
 
-    <script>
-        function signUp(event) {
-            event.preventDefault();
-            const username = document.getElementById('signup-username').value;
-            const password = document.getElementById('signup-password').value;
+<script>
+    function learnMore() {
+        alert("Visit reliable websites like the UN Environment Program or NASA Climate Change for more information.");
+    }
 
-            // Store username and password in local storage
-            localStorage.setItem('username', username);
-            localStorage.setItem('password', password);
+    function pledge() {
+        alert("Thank you for pledging to make a difference for our planet!");
+    }
 
-            // Show points page
-            showPointsPage(username);
-        }
+    function contactUs() {
+        alert("For any questions or feedback, reach us at coderstech42@gmail.com.");
+    }
+</script>
 
-        function login(event) {
-            event.preventDefault();
-            const username = document.getElementById('login-username').value;
-            const password = document.getElementById('login-password').value;
-
-            // Check stored credentials
-            if (username === localStorage.getItem('username') && password === localStorage.getItem('password')) {
-                // Show points page
-                showPointsPage(username);
-            } else {
-                alert('Invalid username or password. Please try again.');
-            }
-        }
-
-        function showPointsPage(username) {
-            // Hide forms and show points page
-            document.querySelector('.form-container').style.display = 'none';
-            document.querySelectorAll('.form-container')[1].style.display = 'none';
-            document.getElementById('points-page').style.display = 'block';
-            document.getElementById('points-display').innerText = `Welcome ${username}, Your Points: 100`;
-        }
-
-        function logout() {
-            // Clear stored credentials
-            localStorage.removeItem('username');
-            localStorage.removeItem('password');
-
-            // Refresh page
-            location.reload();
-        }
-    </script>
 </body>
 </html>
